@@ -300,10 +300,10 @@ Planilha6.Range("L2").Value = ListBox1.List(nlin, 1)
 
 Call IntervaloDados
 
-Label63.Caption = Planilha6.Range("L2")
-Label64.Caption = Planilha6.Range("U1")
-Label66.Caption = Planilha6.Range("U11")
-Label68.Caption = Planilha6.Range("U10")
+Label63.Caption = Planilha6.Range("L2")     'Numero da OS
+Label64.Caption = Planilha6.Range("U1")     'Valor total
+Label66.Caption = Planilha6.Range("U11")    'Itens
+Label68.Caption = Planilha6.Range("U10")    'Quantidade
 
 Planilha7.Range("H2").Value = ListBox1.List(nlin, 1)
 Planilha7.Range("H3").Value = ListBox1.List(nlin, 5)
