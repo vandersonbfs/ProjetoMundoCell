@@ -1,12 +1,12 @@
-Attribute VB_Name = "Módulo4"
+Attribute VB_Name = "Mï¿½dulo4"
 Sub InserirFluxo()
 bloqueado = True
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim id As Integer
+    Dim n As Long
+    Dim id As Long
     Dim os As Long
     Dim hj As Date
-    Dim Qntd As Integer
+    Dim Qntd As Long
     Dim vlr As Long
     Dim Descr As String
     Dim tipo As String
@@ -17,9 +17,9 @@ bloqueado = True
         tipo = "ENTRADA"
         Descr = "VENDA"
     ElseIf id = slv Then
-        os = Range("Slv").Value 'Se não, Recebe numero do serviço executado
+        os = Range("Slv").Value 'Se nï¿½o, Recebe numero do serviï¿½o executado
         tipo = "ENTRADA"
-        Descr = "SERVIÇO"
+        Descr = "SERVIï¿½O"
     End If
 
     Set tabela = Planilha5.ListObjects(1)

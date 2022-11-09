@@ -12,8 +12,8 @@ Sub InserirProdCaixa()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim id As Integer
+    Dim n As Long
+    Dim id As Long
     Dim os As Long
     Dim hj As Date
     
@@ -50,8 +50,8 @@ Sub EditarProdCaixa()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim l As Integer
+    Dim n As Long
+    Dim l As Long
     Dim os As Long
     Dim hj As Date
     
@@ -97,8 +97,8 @@ Sub DeletarProdCaixa()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim l As Integer
+    Dim n As Long
+    Dim l As Long
     Dim os As Long
     Dim hj As Date
     

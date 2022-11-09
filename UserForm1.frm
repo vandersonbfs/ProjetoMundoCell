@@ -17,7 +17,7 @@ Attribute VB_Exposed = False
 
 
 Private Sub btDeletar_Click()
-Dim nlin As Integer
+Dim nlin As Long
 
     If TbgEditar.Value = True Then
         nlin = ListBox1.ListIndex
@@ -46,7 +46,7 @@ UserForm2.Show
 End Sub
 
 Private Sub btSalvar_Click()
-Dim nlin As Integer
+Dim nlin As Long
 
     If TbgEditar.Value = True Then
         nlin = ListBox1.ListIndex
@@ -86,12 +86,12 @@ Else
     
     Email.To = txtEmail.Value
     
-    Email.Subject = "Ordem de Serviço Nº " & os & " - " & emp
+    Email.Subject = "Ordem de Serviï¿½o Nï¿½ " & os & " - " & emp
     
     texto = Planilha2.Range("F3").Value
     assinatura = Planilha2.Range("F2").Value
 
-    Email.Body = "Olá " & txtnome.Value & "," & Chr(10) & Chr(10) _
+    Email.Body = "Olï¿½ " & txtnome.Value & "," & Chr(10) & Chr(10) _
     & texto & Chr(10) & Chr(10) _
     & "Atenciosamente," & Chr(10) & assinatura
     
@@ -260,11 +260,14 @@ End Sub
 
 
 Private Sub ListBox1_Change()
-Dim nlin As Integer
+Dim nlin As Long
 Dim slv As Long
 
+'Metodos a serem carregados Primeiro
 
-Call LimpaFiltro
+
+'Carregar dados da Lisbox1 para o formulario
+
 nlin = ListBox1.ListIndex
 If bloqueado = True Then Exit Sub
 If nlin = -1 Then Exit Sub
@@ -272,7 +275,7 @@ txtnome.Value = ListBox1.List(nlin, 2)
 txttelefone.Value = ListBox1.List(nlin, 3)
 cbbMarca.Value = ListBox1.List(nlin, 4)
 cbbModelo.Value = ListBox1.List(nlin, 6)
-cbbServiço.Value = ListBox1.List(nlin, 7)
+cbbServiï¿½o.Value = ListBox1.List(nlin, 7)
 cbbFormaPagamento.Value = ListBox1.List(nlin, 8)
 cbbRecebido.Value = ListBox1.List(nlin, 9)
 txtcpf.Value = ListBox1.List(nlin, 10)
@@ -300,14 +303,16 @@ Planilha6.Range("L2").Value = ListBox1.List(nlin, 1)
 
 Call IntervaloDados
 
-Label63.Caption = Planilha6.Range("L2")     'Numero da OS
-Label64.Caption = Planilha6.Range("U1")     'Valor total
-Label66.Caption = Planilha6.Range("U11")    'Itens
-Label68.Caption = Planilha6.Range("U10")    'Quantidade
+Label72.Caption = ListBox1.List(nlin, 0)
+Label63.Caption = Planilha6.Range("L2")
+Label64.Caption = Planilha6.Range("U1")
+Label66.Caption = Planilha6.Range("U11")
+Label68.Caption = Planilha6.Range("U10")
+
 
 Planilha7.Range("H2").Value = ListBox1.List(nlin, 1)
 Planilha7.Range("H3").Value = ListBox1.List(nlin, 5)
-'Finalização    H4 - Criar evento de finalização de OS
+'Finalizaï¿½ï¿½o    H4 - Criar evento de finalizaï¿½ï¿½o de OS
 Planilha7.Range("H5").Value = ListBox1.List(nlin, 22)
 Planilha7.Range("C8").Value = ListBox1.List(nlin, 2)
 Planilha7.Range("C9").Value = ListBox1.List(nlin, 3)
@@ -326,13 +331,13 @@ Else
     Planilha7.Range("H29").Value = Planilha6.Range("U4").Value
     Planilha7.Range("H30").Value = Planilha6.Range("U1").Value
 End If
-
+Call CarregarLabels
 End Sub
 
 
 
 Private Sub ListBox5_Click()
-Dim nlin As Integer
+Dim nlin As Long
     nlin = UserForm1.ListBox5.ListIndex
         If bloqueado = True Then Exit Sub
         If nlin = -1 Then Exit Sub
@@ -380,7 +385,9 @@ Call Atulizar_ListBox4
 Call Atulizar_ListboxProd1
 Call BaseCaixa
 Call LimpaFiltro
+
 'Planilha5.Range("L2").Value = ""
+Label72.Caption = Range("ID").Value
 Label56.Caption = Planilha5.Range("L4").Value
 Label58.Caption = Planilha5.Range("L5").Value
 Label61.Caption = Planilha5.Range("L6").Value
@@ -394,11 +401,11 @@ Label61.Caption = Planilha5.Range("L6").Value
             UserForm1.cbbFormaPagamento.AddItem Planilha2.Cells(LIN, 11)
         Next LIN
         
-    UserForm1.cbbServiço.Clear
+    UserForm1.cbbServiï¿½o.Clear
     totLIN = Planilha2.Range("g" & Rows.Count).End(xlUp).Row
     
         For LIN = 1 To totLIN
-            UserForm1.cbbServiço.AddItem Planilha2.Cells(LIN, 7)
+            UserForm1.cbbServiï¿½o.AddItem Planilha2.Cells(LIN, 7)
         Next LIN
         
     UserForm1.cbbRecebido.Clear
@@ -409,17 +416,17 @@ Label61.Caption = Planilha5.Range("L6").Value
         Next LIN
                 
     UserForm1.cbbStatus.Clear
-    totLIN = Planilha2.Range("L" & Rows.Count).End(xlUp).Row
+    totLIN = Planilha2.Range("M" & Rows.Count).End(xlUp).Row
     
         For LIN = 1 To totLIN
             UserForm1.cbbStatus.AddItem Planilha2.Cells(LIN, 13)
         Next LIN
 End Sub
 
-Private Sub UserForm_KeyDown(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+Private Sub UserForm_KeyDown(ByVal KeyCode As MSForms.ReturnLong, ByVal Shift As Long)
 
 End Sub
 
-Private Sub UserForm_QueryClose(Cancel As Integer, CloseMode As Integer)
+Private Sub UserForm_QueryClose(Cancel As Long, CloseMode As Long)
 Application.Visible = True
 End Sub

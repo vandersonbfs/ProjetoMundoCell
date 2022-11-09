@@ -1,12 +1,12 @@
-Attribute VB_Name = "Módulo2"
+Attribute VB_Name = "Mï¿½dulo2"
 Option Explicit
 
 Sub InserirProd()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim id As Integer
+    Dim n As Long
+    Dim id As Long
     Dim os As Long
     Dim hj As Date
     
@@ -43,8 +43,8 @@ Sub EditarProd()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim l As Integer
+    Dim n As Long
+    Dim l As Long
     Dim os As Long
     Dim hj As Date
     
@@ -90,8 +90,8 @@ Sub DeletarProd()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim l As Integer
+    Dim n As Long
+    Dim l As Long
     Dim os As Long
     Dim hj As Date
     
@@ -101,7 +101,7 @@ bloqueado = True
     
     
     UserForm2.ListBox2.RowSource = ""
-    'tabela.ListRows(l).Delete ----> Listrows começa a conta apartir linha 2
+    'tabela.ListRows(l).Delete ----> Listrows comeï¿½a a conta apartir linha 2
     tabela.Range.Rows(l).Delete
     
     Call Atulizar_ListboxProd

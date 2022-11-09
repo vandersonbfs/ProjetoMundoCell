@@ -1,13 +1,13 @@
-Attribute VB_Name = "Módulo3"
+Attribute VB_Name = "Mï¿½dulo3"
 Sub InserirItem()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim id As Integer
+    Dim n As Long
+    Dim id As Long
     Dim os As Long
     Dim hj As Date
-    Dim Qntd As Integer
+    Dim Qntd As Long
     Dim vlr As Long
     
     
@@ -46,8 +46,8 @@ Sub EditarItem()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim l As Integer
+    Dim n As Long
+    Dim l As Long
     Dim os As Long
     Dim hj As Date
     
@@ -80,8 +80,8 @@ Sub DeletarItem()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim l As Integer
+    Dim n As Long
+    Dim l As Long
     Dim os As Long
     Dim hj As Date
     
@@ -90,7 +90,7 @@ bloqueado = True
     l = tabela.Range.Columns().Find(n, , , xlWhole).Row
     
     UserForm3.ListBox3.RowSource = ""
-    'tabela.ListRows(l).Delete ----> Listrows começa a conta apartir linha 2
+    'tabela.ListRows(l).Delete ----> Listrows comeï¿½a a conta apartir linha 2
     tabela.Range.Rows(l).Delete
     
     Call Atulizar_Listbox3

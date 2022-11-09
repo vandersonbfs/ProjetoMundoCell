@@ -1,13 +1,13 @@
-Attribute VB_Name = "Mï¿½dulo1"
+Attribute VB_Name = "Módulo1"
 Option Explicit
 Global bloqueado As Boolean
-'Metodos para inserÃ§Ã£o e manipulaÃ§Ã£o dos dados
+
 Sub Inserir()
 bloqueado = True
     
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim id As Integer
+    Dim n As Long
+    Dim id As Long
     Dim os As Long
     Dim hj As Date
    
@@ -28,7 +28,7 @@ bloqueado = True
     tabela.Range(n, 5).Value = UserForm1.cbbMarca.Value
     tabela.Range(n, 6).Value = hj
     tabela.Range(n, 7).Value = UserForm1.cbbModelo.Value
-    tabela.Range(n, 8).Value = UserForm1.cbbServiï¿½o.Value
+    tabela.Range(n, 8).Value = UserForm1.cbbServiço.Value
     tabela.Range(n, 9).Value = UserForm1.cbbFormaPagamento.Value
     tabela.Range(n, 10).Value = UserForm1.cbbRecebido.Value
     tabela.Range(n, 11).Value = UserForm1.txtcpf.Value
@@ -81,8 +81,8 @@ Sub Editar()
 bloqueado = True
     
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim l As Integer
+    Dim n As Long
+    Dim l As Long
     Dim os As Long
     Dim hj As Date
     Dim id As Long
@@ -98,7 +98,7 @@ bloqueado = True
     tabela.Range(l, 5).Value = UserForm1.cbbMarca.Value
     'tabela.Range(l, 6).Value = hj
     tabela.Range(l, 7).Value = UserForm1.cbbModelo.Value
-    tabela.Range(l, 8).Value = UserForm1.cbbServiï¿½o.Value
+    tabela.Range(l, 8).Value = UserForm1.cbbServiço.Value
     tabela.Range(l, 9).Value = UserForm1.cbbFormaPagamento.Value
     tabela.Range(l, 10).Value = UserForm1.cbbRecebido.Value
     tabela.Range(l, 11).Value = UserForm1.txtcpf.Value
@@ -141,8 +141,8 @@ Sub Deletar()
 bloqueado = True
 
     Dim tabela As ListObject
-    Dim n As Integer
-    Dim l As Integer
+    Dim n As Long
+    Dim l As Long
     Dim os As Long
     Dim hj As Date
     
@@ -151,7 +151,7 @@ bloqueado = True
     l = tabela.Range.Columns().Find(n, , , xlWhole).Row
     
     UserForm1.ListBox1.RowSource = ""
-    'tabela.ListRows(l).Delete ----> Listrows comeï¿½a a conta apartir linha 2
+    'tabela.ListRows(l).Delete ----> Listrows começa a conta apartir linha 2
     tabela.Range.Rows(l).Delete
     
     Call Atulizar_Listbox1
@@ -166,7 +166,7 @@ bloqueado = True
     UserForm1.txttelefone.Value = ""
     UserForm1.cbbMarca.Value = ""
     UserForm1.cbbModelo.Value = ""
-    UserForm1.cbbServiï¿½o.Value = ""
+    UserForm1.cbbServiço.Value = ""
     UserForm1.cbbFormaPagamento.Value = ""
     UserForm1.cbbRecebido.Value = ""
     UserForm1.txtcpf.Value = ""
@@ -207,10 +207,8 @@ Set destino = Planilha3.Range("k4:q4")
 base.AdvancedFilter xlFilterCopy, Intc, destino
 
 UserForm1.ListBox6.RowSource = Planilha3.Range("K4").CurrentRegion.Address
-UserForm1.Label63.Caption = Planilha3.Range("L2")
-UserForm1.Label64.Caption = Planilha3.Range("T1")
-UserForm1.Label66.Caption = Planilha3.Range("T2")
-UserForm1.Label68.Caption = Planilha3.Range("T3")
+
+
 End Sub
 
 Sub testeList()
@@ -252,12 +250,12 @@ Else
     
     Email.To = txtEmail.Value
     
-    Email.Subject = "Mundo CELL - Ordem de Serviï¿½o Nï¿½ " & os
+    Email.Subject = "Mundo CELL - Ordem de Serviço Nº " & os
     
     texto = Planilha2.Range("F3").Value
-    assinatura = Planilha2.Range("F2").Value
+    assinatura = Planilha2.Range("F7").Value
 
-    Email.Body = "Olï¿½ " & txtnome.Value & "," & Chr(10) & Chr(10) _
+    Email.Body = "Olá " & txtnome.Value & "," & Chr(10) & Chr(10) _
     & texto & Chr(10) & Chr(10) _
     & "Atenciosamente," & Chr(10) & assinatura
     
